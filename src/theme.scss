@@ -24,3 +24,27 @@ thead {
 .no-active {
     background: #f5f5f5;
 }
+
+table {
+    position: relative;
+    width: 100%;
+
+    & tbody {
+        & .booking-id {
+            min-width: 20%;
+        }
+        & .product-name {
+            width: 40%;
+            min-width: 40%;
+        }
+        & .booking-qty {
+            min-width: 20%;
+        }
+        & .booking-rate {
+            min-width: 20%;
+        }
+        & .booking-cost {
+            min-width: 20%;
+        }
+    }
+}

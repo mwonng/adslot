@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import SellerTable from './components/TableContainer';
 import { loadData } from './utils'
 import { ENDPOINT } from './config/endpoint'
+import { handleData, getSellersIdsFromBookingArr } from './utils'
 function App() {
     const [sellers, setSellers] = useState({})
     const [products, setProducts] = useState({})
@@ -15,11 +16,13 @@ function App() {
             setSellers(allSellers)
             setProducts(allProduct)
             setBookings(allBookings)
+            const data = handleData(allBookings.data, allProduct.data, allSellers.data)
         }
         fetchData();
     }, [])
 
     const readyToRender = sellers.data && products.data && bookings.data;
+
 
     return (
         <div className="container" id="app">

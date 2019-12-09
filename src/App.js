@@ -3,7 +3,7 @@ import SellerTable from './components/TableContainer';
 import { loadData } from './utils'
 import { ENDPOINT } from './config/endpoint'
 import { handleData } from './utils';
-import SearchBox from './components/SeachBox'
+import SearchBox from './components/SearchBox'
 
 function App() {
     const [sellers, setSellers] = useState({})
@@ -59,7 +59,7 @@ function App() {
                     <h3>Bookings</h3>
                 </div>
                 <div className="col-4">
-                    <SearchBox keyword={keyword} handleSearch={handleSearch} />
+                    <SearchBox keyword={keyword} handleSearch={handleSearch} triggerLength={2} />
                 </div>
             </div>
 
@@ -68,7 +68,7 @@ function App() {
                 readyToRender &&
                 sellers.data.map(seller => {
                     const sellersBookings = bookingResults.filter(br => br.productSellerId === seller.id)
-                    return (<SellerTable seller={seller} bookings={sellersBookings} key={seller.id} keywords={keyword} />)
+                    return (<SellerTable seller={seller} bookings={sellersBookings} key={seller.id} keyword={keyword} />)
                 })
             }
         </div>

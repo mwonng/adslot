@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 
 function PlaceHolder({ keyword }) {
-    const placehoder = keyword ? `No bookings match your search term ${keyword}` : "No active booking"
+    const placehoder = (keyword === "") ? "No active booking" : `No bookings match your search term ${keyword}`
     return (
         <table className="table table-sm table-bordered">
             <tbody>

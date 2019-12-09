@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const SearchBox = ({ keyword, handleSearch }) => {
+const SearchBox = ({ keyword, handleSearch, triggerLength }) => {
     const [value, setValue] = useState(keyword)
-
+    const minSearchTermLength = triggerLength || 3
     const handleChange = (e) => {
         const keyword = e.target.value
-        if (keyword.length >= 3 || keyword === "") {
+        if (keyword.length >= minSearchTermLength || keyword === "") {
             setValue(keyword);
             handleSearch(keyword);
         }

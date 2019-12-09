@@ -8,7 +8,7 @@ import SearchBox from './components/SeachBox'
 function App() {
     const [sellers, setSellers] = useState({})
     const [details, setDetails] = useState([])
-    const [keyword, setKeyword] = useState(undefined)
+    const [keyword, setKeyword] = useState("")
     const [bookingResults, setBookingResults] = useState([])
     const timeRef = useRef(undefined)
 

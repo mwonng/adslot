@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const SearchBox = ({ keyword, handleSearch }) => {
     const [value, setValue] = useState(keyword)
@@ -22,5 +23,11 @@ const SearchBox = ({ keyword, handleSearch }) => {
         </div>
     )
 }
+
+SearchBox.propTypes = {
+    keyword: PropTypes.string,
+    handleSearch: PropTypes.func,
+}
+
 
 export default SearchBox

@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
-function PlaceHolder({ keywords }) {
-    const placehoder = keywords ? `No bookings match your search term ${keywords}` : "No active booking"
+function PlaceHolder({ keyword }) {
+    const placehoder = keyword ? `No bookings match your search term ${keyword}` : "No active booking"
     return (
         <table className="table table-sm table-bordered">
             <tbody>
@@ -13,4 +14,7 @@ function PlaceHolder({ keywords }) {
     )
 }
 
+PlaceHolder.propTypes = {
+    keyword: PropTypes.string,
+}
 export default PlaceHolder

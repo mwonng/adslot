@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import PlaceHolder from '../EmptyTable';
 var moment = require('moment');
 
-function Table({ seller, bookings, keywords }) {
+function Table({ seller, bookings, keyword }) {
     let sortedBookings = [...bookings];
 
     sortedBookings.sort((a, b) => moment(b.startDate) - moment(a.startDate))
 
-    const line = sortedBookings.map(pb => {
+    const bookingResults = sortedBookings.map(pb => {
         const now = moment();
         if (now >= moment(pb.endDate)) {
             return false
@@ -35,7 +35,7 @@ function Table({ seller, bookings, keywords }) {
         <table className="table table-sm table-bordered">
             {header}
             <tbody>
-                {line}
+                {bookingResults}
             </tbody>
         </table>
 
@@ -45,7 +45,7 @@ function Table({ seller, bookings, keywords }) {
             {
                 bookings.length > 0 ?
                     <HasContentTable /> :
-                    <PlaceHolder keywords={keywords} />
+                    <PlaceHolder keyword={keyword} />
             }
         </>
 
@@ -54,7 +54,7 @@ function Table({ seller, bookings, keywords }) {
 
 Table.propTypes = {
     seller: PropTypes.object,
-    products: PropTypes.object,
+    keyword: PropTypes.string,
     bookings: PropTypes.array,
 }
 

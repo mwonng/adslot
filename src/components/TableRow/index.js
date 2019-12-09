@@ -1,5 +1,6 @@
-import React from 'react'
-import { getIdFromUUID, formatToRate, calCost, formatToPrice } from '../../utils'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { getIdFromUUID, formatToRate, calCost, formatToPrice } from '../../utils';
 
 function BookingRow({ booking, isLive }) {
     return (
@@ -11,6 +12,11 @@ function BookingRow({ booking, isLive }) {
             <td className="text-right">{formatToPrice(calCost(booking.productRate, booking.quantity))}</td>
         </tr >
     )
+}
+
+BookingRow.propTypes = {
+    booking: PropTypes.object,
+    isLive: PropTypes.bool,
 }
 
 export default BookingRow

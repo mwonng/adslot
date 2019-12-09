@@ -8,7 +8,7 @@ import SearchBox from './components/SeachBox'
 function App() {
     const [sellers, setSellers] = useState({})
     const [details, setDetails] = useState([])
-    const [keyword, setKeyword] = useState()
+    const [keyword, setKeyword] = useState(undefined)
     const [bookingResults, setBookingResults] = useState([])
     const timeRef = useRef(undefined)
 
@@ -23,16 +23,15 @@ function App() {
 
             setDetails(data);
             setBookingResults(data)
-            // console.log(data);
         }
         fetchData();
     }, [])
 
     useEffect(() => {
-        const regex = RegExp(`^${keyword}`, 'gi');
         if (keyword === "") {
             setBookingResults(details)
         }
+        const regex = RegExp(`^${keyword}`, 'gi');
         const filteredWithQuery = details.filter(d => regex.test(d.productName))
 
         if (timeRef.current) {

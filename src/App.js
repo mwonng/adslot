@@ -53,8 +53,8 @@ function App() {
 
     return (
         <div className="container" id="app">
-            <h3><strong>Adslot.</strong></h3>
-            <div className="row">
+            <h2 className="title-two"><strong>Adslot.</strong></h2>
+            <div className="row title-area">
                 <div className="col-8">
                     <h3>Bookings</h3>
                 </div>

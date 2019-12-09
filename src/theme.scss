@@ -2,7 +2,7 @@ $font-family-sans-serif: 'Roboto';
 
 @import '~bootstrap/scss/bootstrap.scss';
 
-body {
+html {
     font-size: 12px;
 }
 
@@ -51,4 +51,17 @@ table {
 
 div.form-group.search-box {
     margin-bottom: 0px;
+}
+
+hr {
+    margin: 0.5rem 0;
+}
+
+.title-two {
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+h4 {
+    margin-top: 2rem;
 }

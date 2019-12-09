@@ -59,7 +59,7 @@ function App() {
                     <h3>Bookings</h3>
                 </div>
                 <div className="col-4">
-                    <SearchBox keyword={keyword} handleSearch={handleSearch} triggerLength={2} />
+                    <SearchBox keyword={keyword} handleSearch={handleSearch} />
                 </div>
             </div>
 

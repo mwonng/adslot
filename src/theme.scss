@@ -65,3 +65,9 @@ hr {
 h4 {
     margin-top: 2rem;
 }
+
+.loading-area {
+    & > h3 {
+        margin-top: 2rem;
+    }
+}

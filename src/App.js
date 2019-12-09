@@ -51,6 +51,21 @@ function App() {
         setKeyword(value)
     }
 
+    let dataContent;
+    if (!readyToRender) {
+        dataContent =
+            <div className="text-center loading-area">
+                <h3>Loading</h3>
+            </div>
+
+    } else {
+        dataContent =
+            sellers.data.map(seller => {
+                const sellersBookings = bookingResults.filter(br => br.productSellerId === seller.id)
+                return (<SellerTable seller={seller} bookings={sellersBookings} key={seller.id} keyword={keyword} />)
+            })
+    }
+
     return (
         <div className="container" id="app">
             <h2 className="title-two"><strong>Adslot.</strong></h2>
@@ -64,13 +79,7 @@ function App() {
             </div>
 
             <hr />
-            {
-                readyToRender &&
-                sellers.data.map(seller => {
-                    const sellersBookings = bookingResults.filter(br => br.productSellerId === seller.id)
-                    return (<SellerTable seller={seller} bookings={sellersBookings} key={seller.id} keyword={keyword} />)
-                })
-            }
+            {dataContent}
         </div>
     );
 }
